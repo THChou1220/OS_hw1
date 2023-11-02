@@ -35,12 +35,12 @@ static int proc_init(void)
     init_jiffies = jiffies; //用變數記住載入模組時的jiffies
 
 
-        // 創出/proc/seconds這個項目
-        proc_create(PROC_NAME, 0, NULL, &proc_ops);
+    // 創出/proc/seconds這個項目
+    proc_create(PROC_NAME, 0, NULL, &proc_ops);
 
-        printk(KERN_INFO "/proc/%s created\n", PROC_NAME);
+    printk(KERN_INFO "/proc/%s created\n", PROC_NAME);
 
-        return 0;
+    return 0;
 }
 
 // 當模組被移除會觸發這個函式 無返回值
@@ -63,8 +63,8 @@ static ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, 
         // 限制在 "cat /proc/seconds" 時，只會列出一次資訊，否則只要回傳的不是0就會一直循環輸出下去
         static int completed = 0;
         if (completed) {
-                completed = 0;
-                return 0;
+       	    	completed = 0;
+            	return 0;
         }
         completed = 1;
 

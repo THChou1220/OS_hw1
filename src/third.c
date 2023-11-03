@@ -35,17 +35,17 @@ MODULE_PARM_DESC(mybirthday, "An array of integers");
 
 static int __init proc_init(void)
 {
-    pr_info("Hello, world\n");
-    pr_info("my age is : %d\n", myage);
-    pr_info("my name is : %s\n", myname);
-    pr_info("my birthday is : %d/%d\n", mybirthday[0], mybirthday[1]);
+	pr_info("Hello, world\n");
+	pr_info("my age is : %d\n", myage);
+	pr_info("my name is : %s\n", myname);
+	pr_info("my birthday is : %d/%d\n", mybirthday[0], mybirthday[1]);
 
-    return 0;
+	return 0;
 }
 
 static void __exit proc_exit(void)
 {
-    pr_info("Goodbye, world\n");
+	pr_info("Goodbye, world\n");
 }
 
 module_init(proc_init);

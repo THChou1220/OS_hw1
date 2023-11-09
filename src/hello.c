@@ -32,24 +32,21 @@ static struct file_operations proc_ops = {
 	.read = proc_read,
 };
 
-
 /* This function is called when the module is loaded. */
 static int proc_init(void)
 {
-
 	// creates the /proc/hello entry
 	// the following function call is a wrapper for
 	// proc_create_data() passing NULL as the last argument
 	proc_create(PROC_NAME, 0, NULL, &proc_ops);
 
 	printk(KERN_INFO "/proc/%s created\n", PROC_NAME);
-
+	
 	return 0;
 }
 
 /* This function is called when the module is removed. */
 static void proc_exit(void) {
-
 	// removes the /proc/hello entry
 	remove_proc_entry(PROC_NAME, NULL);
 

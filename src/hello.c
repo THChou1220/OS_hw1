@@ -46,7 +46,8 @@ static int proc_init(void)
 }
 
 /* This function is called when the module is removed. */
-static void proc_exit(void) {
+static void proc_exit(void) 
+{
 	// removes the /proc/hello entry
 	remove_proc_entry(PROC_NAME, NULL);
 
